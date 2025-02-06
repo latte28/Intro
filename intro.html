@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>온라인 프로필</title>
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        #container {
+            width: 80%;
+            max-width: 900px;
+            margin: 20px auto;
+            display: flex;
+            gap: 20px;
+        }
+        #side {
+            width: 30%;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        #side img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10%;
+            margin-bottom: 15px;
+        }
+        #side h1 {
+            font-size: 30px;
+        }
+        #side p {
+            font-size: 10px;
+        }
+        #sns a {
+            color: #ffcc00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        #contents {
+            width: 70%;
+            background-image: url("media/푸른\ 하늘.jpg");
+            background-repeat: no-repeat;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+        }
+        h2.subtitle {
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 3px solid black;
+        }
+        th{
+            padding: 10px;
+            text-align: left;
+        }
+        td{
+            padding: 10px;
+            text-align: left;
+            color: white;
+        }
+        thead {
+            background-color: #f4f4f4;
+        }
+        .skills {
+            display: flex;
+            gap: 10px;
+        }
+        .skill {
+            background: #f4f4f4;
+            padding: 8px 12px;
+            border: 1px solid black;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="container" >
+        <div id="side">
+            <img src="media/라떼1.jpg" alt="프로필 이미지">
+            <h1>Park Jaewon</h1>
+            <p>코딩 중...</p>
+            <p>Incheon, Korea</p>
+            <p>qkrwodnjs7953@naver.com</p>
+            <br>
+            <div id="sns">
+                <h2>SNS</h2>
+                <h3><a href="#">클릭!</a></h3>
+            </div>
+        </div>
+        <div id="contents" style="background-size: cover;">
+            <section>
+                <h2 class="subtitle" style="font-style: italic; color: white;">※자기소개</h2>
+                <p style="font-weight:bolder ;"><mark>프로그래밍</mark>에 관심이 많습니다. 현재 열심히 공부하며 코딩 중!</p>
+            </section>
+            <section>
+                <h2 class="subtitle" style="font-style: italic; color: white;">※경험</h2>
+                <ul>
+                    <li><strong style="color: darkgoldenrod;">프론트엔드</strong>
+                        <ul>
+                            <li>- HTML, CSS, JavaScript</li>
+                            <li>- 웹 페이지 개발 능숙</li>
+                            <li>- 다양한 프로젝트 경험</li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li><strong style="color: darkgoldenrod; ">백엔드</strong>
+                        <ul>
+                            <li>- Java 개발</li>
+                            <li>- Oracle DB 활용</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2 class="subtitle" style="font-style: italic; color: red;">※보유 기술</h2>
+                <ul class="skills">
+                    <span class="skill">Java</span>
+                    <span class="skill">Oracle</span>
+                    <span class="skill">HTML/CSS</span>
+                </ul>
+            </section>
+            <section>
+                <h2 class="subtitle" style="font-style: italic; color: brown;">※학력</h2>
+                <table>
+                    <caption>학력 사항</caption>
+                    <thead>
+                        <tr>
+                            <th>출신학교</th>
+                            <th>전공</th>
+                            <th>기간</th>
+                            <th>구분</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>00대학교</td>
+                            <td>항공소프트웨어공학</td>
+                            <td>2019.03 ~ 2025.02</td>
+                            <td>졸업 예정</td>
+                        </tr>
+                        <tr>
+                            <td>00고등학교</td>
+                            <td>-</td>
+                            <td>2016.03 ~ 2019.01</td>
+                            <td>졸업</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
