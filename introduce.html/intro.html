@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>온라인 프로필</title>
+    <meta charset="utf-8">
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background:url(../introduce.html/media/coding.png);
+            background-size: cover;
+            color: white;
+            overflow: hidden;
+            height: 100vh;
+            scroll-behavior: smooth; /* 스크롤 이동 부드럽게 */
+            perspective: 1000px;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column; 
+            justify-content: flex-start;
+            gap: 40px;
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* 사이드바 스타일 */
+        #side {
+            background-color: #34495e;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: fixed;
+            width: 250px;
+            top: 20px;
+            left: 50px;
+            overflow: hidden;
+        }
+
+        #side h1 {
+            margin-bottom: 110px;
+        }
+
+        
+
+        #char {
+            width: 250px;
+            height: 250px;
+            transition: transform 2s ease-in-out;
+            transform-style: preserve-3d; /* 3D 회전 효과 유지 */
+        }
+
+        .rotate {
+            animation: rotate3D 2s ease-in-out forwards;
+        }
+
+        @keyframes rotate3D {
+            0% {
+                transform: rotateY(0deg);
+            }
+            25% {
+                transform: rotateY(90deg);
+            }
+            50% {
+                transform: rotateY(180deg);
+            }
+            75% {
+                transform: rotateY(270deg);
+            }
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+
+        #sns {
+            margin-top: 50px;
+        }
+
+        #sns a img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s;
+            margin-right: 10px;
+        }
+
+        #sns a:hover img {
+            transform: scale(1.2);
+        }
+
+        #time {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 10px;
+            color: #1abc9c;
+        }
+
+        /* 콘텐츠 영역 */
+        #contents {
+            margin-left: 400px; 
+            width: calc(100% - 550px); /* 사이드바 크기 제외 */
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            overflow:hidden;
+            height: 100vh; 
+        }
+
+        .content-section {
+            display: none; /* 기본적으로 모든 섹션은 숨기기 */
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            background-color: rgba(52, 73, 94, 0.9);
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.4);
+            transition: opacity 0.5s ease-in-out;
+            scroll-snap-align: start; /* 각 섹션이 스크롤될 때 하나씩 보이게 */
+        }
+
+        /* 버튼 스타일 */
+        .buttons {
+            display: flex; 
+            justify-content: center; 
+            gap: 10px; 
+            margin-bottom: 15px; 
+        }
+
+        .buttons button {
+            background-color: #16a085;
+            padding: 10px 20px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .buttons button:hover {
+            background-color: #1abc9c;
+        }
+
+
+        /* 기술 항목 스타일 */
+        .skills {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            justify-content: center;
+            padding-top: 20px; /* 상단 여백 추가 */
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #16a085;
+            margin-bottom: 10px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .skills-category {
+            display: flex;
+            gap: 30px; 
+            justify-content: center;
+            flex-wrap: wrap;  
+        }
+
+        .skill {
+            display: flex;
+            align-items: center;  
+            gap: 10px;  
+        }
+
+        .skill-image {
+            width: 40px;  
+            height: 40px;
+        }
+
+        .skill-text {
+            font-size: 15px;
+            font-weight: bold;
+            color: white;
+        }
+
+
+
+
+        /* 테이블 스타일 */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 2px solid #7f8c8d;
+        }
+
+        thead {
+            background-color: #2c3e50;
+        }
+
+        /* 자기소개 섹션 여백 추가 */
+        #intro {
+            padding-top: 40px; /* 상단 여백 추가 */
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <!-- 사이드바 -->
+        <div id="side">
+            <img id="char" src="../introduce.html/media/char.jaewon.jpg" alt="Park jaewon 이미지">
+            <h1>Park Jaewon</h1>
+            <div id="side_box">
+                <p><span>📍</span> Incheon, Korea</p>
+                <p><span>📞</span> 010-1234-5678</p>
+                <p><span>📧</span> qkrwodnjs7953@naver.com</p>
+            </div>
+            
+            <div id="sns">
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram">
+                </a>
+                <a href="https://github.com/dashboard" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
+                </a>
+            </div>
+            <div id="time"></div>
+        </div>
+
+        <!-- 메인 콘텐츠 -->
+        <div id="contents">
+            <!-- 네비게이션 버튼 -->
+            <div class="buttons">
+                <button onclick="showSection('intro')">자기소개</button>
+                <button onclick="showSection('experience')">경험</button>
+                <button onclick="showSection('skills')">보유 기술</button>
+                <button onclick="showSection('education')">학력</button>
+            </div>
+
+            <!-- 자기소개 섹션 -->
+            <div id="intro" class="content-section">
+                <h2>자기소개</h2>
+                <p style="font-weight: bold;">안녕하십니까! 저는 개발자 꿈을 가지고 공부 중인 박재원입니다.</p>
+                <p><mark style="background-color:#16a085; color:white;">프로그래밍</mark>에 관심이 많습니다. 현재 열심히 공부하며 코딩 중!</p>
+
+                <hr>
+                <h2>!개발자의 꿈을 키워나간 이유!</h2>
+                <p>
+                    저는 어릴 적부터 문제를 해결하는 능력에는 빛을 보지는 못했습니다. 특히 컴퓨터와 소프트웨어를 활용하면 단순한 아이디어가 현실이 되는 과정을 직접 경험할 수 있다는 점이 매력적이었다. 
+                    처음 프로그래밍을 접했을 때, 몇 줄의 코드로 무언가를 실행시키고 자동화할 수 있다는 사실에 깊은 감명을 받았고, 점점 더 복잡한 문제를 해결하고 싶다는 욕구가 생겼다.
+                </p>
+                <p>
+                    또한, 기술은 빠르게 발전하고 있으며, 이를 통해 사회와 사람들의 삶을 변화시킬 수 있다는 점도 개발자로서 성장하고 싶은 큰 이유 중 하나입니다. 
+                    기술을 활용해 더 효율적인 시스템을 만들거나, 일상 속 불편함을 해결하는 것은 제게도 큰 보람을 주지만 사용하는 사용자는 더 편리한 시스템을 사용할 수 있다는 보람 또한 느낄 수 있습니다.
+                    개발자는 단순히 코드를 작성하는 사람이 아니라, 창의적인 사고를 통해 세상을 더 나은 방향으로 변화시킬 수 있는 직업이라고 생각한다.
+                </p>
+                <p>
+                    결국, 저에게는 개발이란 단순한 직업이 아니라, 끊임없이 배우고 성장하며 세상을 바꾸는 도구라고 생각합니다. 
+                    그래서 저는 개발자의 꿈을 키워 나가며, 더 나은 기술과 솔루션을 만들어내는 사람이 되고 싶다.
+                </p>
+            </div>
+
+            <!-- 경험 섹션 -->
+            <div id="experience" class="content-section">
+                <h2>경험</h2>
+                <ul>
+                    <li><strong>프론트엔드:</strong> HTML, CSS, JavaScript, jQuery</li>
+                    <li><strong>백엔드:</strong> Java, OracleDB</li>
+                </ul>
+            </div>
+
+            <!-- 보유 기술 섹션 -->
+            <div id="skills" class="content-section">
+                <h2>보유 기술</h2>
+                <div class="skills">
+                    <div class="section-title">프론트엔드</div>
+                    <div class="skills-category">
+                        <div class="skill">
+                            <img src="../introduce.html/media/html.png" alt="HTML" class="skill-image">
+                            <span class="skill-text">HTML</span>
+                        </div>
+                        <div class="skill">
+                            <img src="../introduce.html/media/css.png" alt="CSS" class="skill-image">
+                            <span class="skill-text">CSS</span>
+                        </div>
+                        <div class="skill">
+                            <img src="../introduce.html/media/js.jpg" alt="JavaScript" class="skill-image">
+                            <span class="skill-text">JavaScript</span>
+                        </div>
+                        <div class="skill">
+                            <img src="../introduce.html/media/jquery.png" alt="jQuery" class="skill-image">
+                            <span class="skill-text">jQuery</span>
+                        </div>
+                    </div>
+                    
+                    <div class="section-title">백엔드</div>
+                    <div class="skills-category">
+                        <div class="skill">
+                            <img src="../introduce.html/media/java.png" alt="Java" class="skill-image">
+                            <span class="skill-text">Java</span>
+                        </div>
+                        <div class="skill">
+                            <img src="../introduce.html/media/oracle.png" alt="OracleDB" class="skill-image">
+                            <span class="skill-text">OracleDB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+
+            <!-- 학력 섹션 -->
+            <div id="education" class="content-section">
+                <h2>학력</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>출신학교</th>
+                            <th>전공</th>
+                            <th>기간</th>
+                            <th>구분</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>한서대학교</td>
+                            <td>항공소프트웨어공학</td>
+                            <td>2019.03 ~ 2025.08</td>
+                            <td>졸업 예정</td>
+                        </tr>
+                        <tr>
+                            <td>마전고등학교</td>
+                            <td>이과</td>
+                            <td>2016.03 ~ 2019.01</td>
+                            <td>졸업</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>이력</h2>
+                <ul>
+                    <li><strong>2023.09 ~ 2023.12:</strong> 운영체제,데이터베이스 이론 학습, 항공소프트웨어 이론</li>
+                    <br>
+                    <li><strong>2024.03~2024.12:</strong> 졸업프로젝트 겸 HTML.CSS 학습/ 네트워크 이론</li>
+                    <br>
+                    <li><strong>2024.12.26~ 2025.07.12:</strong>풀스택 개발 공부, java,oracle,HTML.CSS, JavaScript 진행중</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 실시간 시간 표시
+        setInterval(() => { 
+            let datetime = new Date(); 
+            let time = datetime.getHours().toString().padStart(2, '0') + ":" + 
+                        datetime.getMinutes().toString().padStart(2, '0') + ":" + 
+                        datetime.getSeconds().toString().padStart(2, '0');
+            document.querySelector("#time").innerHTML = "현재 시간: " + time;
+        }, 1000);
+
+        // 버튼 클릭 시 해당 섹션만 보이도록
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.style.display = 'none';  // 모든 섹션 숨기기
+            });
+            const sectionToShow = document.getElementById(sectionId);
+            sectionToShow.style.display = 'block';  // 선택한 섹션만 보이기
+        }
+
+        // 기본적으로 첫 번째 섹션 보여주기
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('intro');
+        });
+
+        document.querySelector("#char").addEventListener("click", function() {
+        // 애니메이션 추가
+        this.classList.add("rotate");
+
+        // 애니메이션이 끝난 후, 클래스 제거 (반복되지 않도록)
+        this.addEventListener("animationend", () => {
+            this.classList.remove("rotate");
+            });
+        });
+
+    </script>
+</body>
+</html>
