@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* 기본 스타일 */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -53,8 +52,7 @@
             width: 250px;
             height: 250px;
             transition: transform 2s ease-in-out;
-            transform-style: preserve-3d; /* 3D 회전 효과 유지 */
-        }
+            transform-style: preserve-3d; 
 
         .rotate {
             animation: rotate3D 2s ease-in-out forwards;
@@ -95,7 +93,7 @@
             color: #1abc9c;
         }
 
-        /* 콘텐츠 영역 */
+
         #contents {
             margin-left: 400px; 
             width: calc(100% - 550px); /* 사이드바 크기 제외 */
@@ -108,17 +106,17 @@
         }
 
         .content-section {
-            display: none; /* 기본적으로 모든 섹션은 숨기기 */
+            display: none;
             padding: 30px;
             margin-bottom: 30px;
             border-radius: 15px;
             background-color: rgba(52, 73, 94, 0.9);
             box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.4);
             transition: opacity 0.5s ease-in-out;
-            scroll-snap-align: start; /* 각 섹션이 스크롤될 때 하나씩 보이게 */
+            scroll-snap-align: start; 
         }
 
-        /* 버튼 스타일 */
+        
         .buttons {
             display: flex; 
             justify-content: center; 
@@ -142,15 +140,13 @@
         }
 
 
-        /* 기술 항목 스타일 */
         .skills {
             display: flex;
             flex-direction: column;
             gap: 40px;
             justify-content: center;
-            padding-top: 20px; /* 상단 여백 추가 */
+            padding-top: 20px; 
         }
-
         .section-title {
             font-size: 1.5rem;
             font-weight: bold;
@@ -159,25 +155,21 @@
             text-align: center;
             text-transform: uppercase;
         }
-
         .skills-category {
             display: flex;
             gap: 30px; 
             justify-content: center;
             flex-wrap: wrap;  
         }
-
         .skill {
             display: flex;
             align-items: center;  
             gap: 10px;  
         }
-
         .skill-image {
             width: 40px;  
             height: 40px;
         }
-
         .skill-text {
             font-size: 15px;
             font-weight: bold;
@@ -185,9 +177,6 @@
         }
 
 
-
-
-        /* 테이블 스타일 */
         table {
             border-collapse: collapse;
             width: 100%;
@@ -202,9 +191,9 @@
             background-color: #2c3e50;
         }
 
-        /* 자기소개 섹션 여백 추가 */
+
         #intro {
-            padding-top: 40px; /* 상단 여백 추가 */
+            padding-top: 40px;
         }
 
     </style>
@@ -213,7 +202,7 @@
     <div id="container">
         <!-- 사이드바 -->
         <div id="side">
-            <img id="char" src="../introduce.html/media/char.jaewon.jpg" alt="Park jaewon 이미지">
+            <img id="char" src="media/char.jaewon.jpg" alt="Park jaewon 이미지">
             <h1>Park Jaewon</h1>
             <div id="side_box">
                 <p><span>📍</span> Incheon, Korea</p>
@@ -232,9 +221,7 @@
             <div id="time"></div>
         </div>
 
-        <!-- 메인 콘텐츠 -->
         <div id="contents">
-            <!-- 네비게이션 버튼 -->
             <div class="buttons">
                 <button onclick="showSection('intro')">자기소개</button>
                 <button onclick="showSection('experience')">경험</button>
@@ -311,8 +298,6 @@
                     </div>
                 </div>
             </div>
-            
-            
 
             <!-- 학력 섹션 -->
             <div id="education" class="content-section">
@@ -355,7 +340,6 @@
     </div>
 
     <script>
-        // 실시간 시간 표시
         setInterval(() => { 
             let datetime = new Date(); 
             let time = datetime.getHours().toString().padStart(2, '0') + ":" + 
@@ -366,11 +350,11 @@
 
         // 버튼 클릭 시 해당 섹션만 보이도록
         function showSection(sectionId) {
-            const sections = document.querySelectorAll('.content-section');
+            let sections = document.querySelectorAll('.content-section');
             sections.forEach(section => {
                 section.style.display = 'none';  // 모든 섹션 숨기기
             });
-            const sectionToShow = document.getElementById(sectionId);
+            let sectionToShow = document.getElementById(sectionId);
             sectionToShow.style.display = 'block';  // 선택한 섹션만 보이기
         }
 
@@ -380,10 +364,9 @@
         });
 
         document.querySelector("#char").addEventListener("click", function() {
-        // 애니메이션 추가
+
         this.classList.add("rotate");
 
-        // 애니메이션이 끝난 후, 클래스 제거 (반복되지 않도록)
         this.addEventListener("animationend", () => {
             this.classList.remove("rotate");
             });
