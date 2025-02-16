@@ -3,6 +3,7 @@
 <head>
     <title>온라인 프로필</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         /* 기본 스타일 */
         body {
@@ -77,18 +78,12 @@
             }
         }
 
-        #sns {
-            margin-top: 50px;
-        }
-
-        #sns a img {
-            width: 40px;
-            height: 40px;
+        #sns a {
+            margin: 0 15px;
             transition: transform 0.3s;
-            margin-right: 10px;
         }
 
-        #sns a:hover img {
+        #sns a:hover {
             transform: scale(1.2);
         }
 
@@ -227,11 +222,11 @@
             </div>
             
             <div id="sns">
-                <a href="https://www.instagram.com" target="_blank">
-                    <img src="media/instargram.png" alt="Instagram">
+                <a href="https://www.instagram.com" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram fa-2x" style="color: #E4405F;"></i>
                 </a>
-                <a href="https://github.com/dashboard" target="_blank">
-                    <img src="media/github.png" alt="GitHub">
+                <a href="https://github.com/dashboard" target="_blank" title="GitHub">
+                    <i class="fab fa-github fa-2x" style="color: #333;"></i>
                 </a>
             </div>
             <div id="time"></div>
